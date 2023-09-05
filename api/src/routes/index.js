@@ -8,5 +8,9 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
+router.get('/games',(req,res)=>{});
+router.get('/games/{id}',(req,res)=>{});
+router.get('/games/?search={game}',(req,res)=>{});
+
 
 module.exports = router;
