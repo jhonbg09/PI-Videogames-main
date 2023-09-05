@@ -1,18 +1,31 @@
+// Query
+const getSearchNameHandler = (req, res) => {
+    const { videoGame, gender } = req.query;
+    
+    if (videoGame || gender) {
+        return res.status(200).send(`Nombre: ${videoGame} Gender: ${gender}`);
+    }
 
-const getGamesHandler = (req,res)=>{
-    res.status(200).send("funciona la ruta/games");
-}
+    res.status(200).send(`Todos los videogames`);
+};
 
-const getDetailsHandler = (req,res)=>{
-    res.status(200).send("funciona la /games/{id}");
-}
+//Body
+const getCreateGamesHandler = (req, res) => {
+  const {name, gender, calification} = req.body
+  res.status(200).send(`videogame: ${name} de genero ${gender} su calificacion ${calification}`);
+};
 
-const getSearchNameHandler = (req,res)=>{
-    res.status(200).send("funciona la /games/?search={game}");
-}
+// params
+const getDetailsHandler = (req, res) => {
+  const { id } = req.params;
+
+  res.status(200).send(`Detalle de video game ${id}`);
+};
+
+
 
 module.exports = {
-    getDetailsHandler,
-    getGamesHandler,
-    getSearchNameHandler
-}
+  getDetailsHandler,
+  getCreateGamesHandler,
+  getSearchNameHandler,
+};

@@ -1,13 +1,18 @@
 const { Router } = require("express");
-const {getDetailsHandler,  getGamesHandler, getSearchNameHandler} = require('../handlers/gamesHandlers')
+const {getDetailsHandler,  getCreateGamesHandler, getSearchNameHandler} = require('../handlers/gamesHandlers')
 
 const gamesRouter = Router()
 
-gamesRouter.get('/', getGamesHandler);
+//Query
+gamesRouter.get('/', getSearchNameHandler);
 
+//params
+gamesRouter.post('/', getCreateGamesHandler);
+
+//Params
 gamesRouter.get('/:id', getDetailsHandler);
 
-gamesRouter.get('/?search={game}', getSearchNameHandler);
+
 
 
 
