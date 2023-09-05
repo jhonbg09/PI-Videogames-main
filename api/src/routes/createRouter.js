@@ -1,9 +1,9 @@
 const { Router } = require('express')
+const { createGameHandlers } = require('../handlers/createGameHandlers.js')
 
 const createRouter =  Router();
 
-createRouter.post('/createGame',(req,res)=>{
-   res.status(200).send("funciona la ruta de creacion de juegos");
-});
+
+createRouter.post('/createGame', createGameHandlers);
 
 module.exports = createRouter;
