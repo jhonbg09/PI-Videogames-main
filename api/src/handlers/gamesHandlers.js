@@ -26,10 +26,14 @@ const getCreateGamesHandler = async (req, res) => {
 };
 
 // params
-const getDetailsHandler = (req, res) => {
+const getDetailsHandler = async (req, res) => {
   const { id } = req.params;
+
+  const source = isNaN(id)? "bdd" : "api";
+
   try {
-    const response = getVideoGameId()
+    const response = await getVideoGameId(id, source);
+    res.status(200).json(response);
   } catch (error) {
     res.status(400).json({error:error.message});
   }

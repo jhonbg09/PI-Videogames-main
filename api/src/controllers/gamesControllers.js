@@ -4,6 +4,11 @@ const createVideoGameDB = async (name, description, plataforms, image, releaseDa
     return await Videogame.create({name, description, plataforms, image, releaseDate, ranting}); 
 }
 
+const getVideoGameId= async(id, source) =>{
+
+}
+
 module.exports = {
-    createVideoGameDB
+    createVideoGameDB,
+    getVideoGameId
 }
