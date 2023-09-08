@@ -6,7 +6,7 @@ const gamesRouter = Router()
 //Query
 gamesRouter.get('/', getSearchNameHandler);
 
-//params
+
 gamesRouter.post('/', getCreateGamesHandler);
 
 //Params
