@@ -1,23 +1,24 @@
-const { createVideoGameDB }= require('../controllers/gamesControllers')
+const { createVideoGameDB, getVideoGameId, getVideoGameAll, videoGameByName} = require('../controllers/gamesControllers')
+
 
 // Query
-const getSearchNameHandler = (req, res) => {
-    const { videoGame, gender } = req.query;
-    
-    if (videoGame || gender) {
-        return res.status(200).send(`Nombre: ${videoGame} Gender: ${gender}`);
+const getSearchNameHandler = async (req, res) => {
+    const { name } = req.query;
+    try {
+      const results = name ? await videoGameByName(name) : await getVideoGameAll();
+      res.status(200).json(results)
+    } catch (error) {
+      res.status(400).json({error:error.message});
     }
-
-    res.status(200).send(`Todos los videogames`);
-};
+  };
 
 //Body
 const getCreateGamesHandler = async (req, res) => {
-  const {name, description, plataforms, image, releaseDate, ranting} = req.body
+  const {name, description, plataforms, image, releaseDate, rating} = req.body
   
   try {
     
-    const response = await createVideoGameDB(name, description, plataforms, image, releaseDate, ranting);
+    const response = await createVideoGameDB(name, description, plataforms, image, releaseDate, rating, created = true);
     res.status(200).json(response);
   } catch (error) {
     res.status(400).json({error:error.message});
