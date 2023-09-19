@@ -11,6 +11,7 @@ const createVideoGameDB = async (
   image,
   releaseDate,
   rating,
+  genre
   
 ) => {
   return await Videogame.create({
@@ -20,10 +21,10 @@ const createVideoGameDB = async (
     image,
     releaseDate,
     rating,
-    
+    genre
   });
 };
-console.log(createVideoGameDB);
+
 //NOTA: No olvidar modularizar esta funcion
 const cleanArrayApi = (arr) => {
   const clean = arr.map((elem) => {
