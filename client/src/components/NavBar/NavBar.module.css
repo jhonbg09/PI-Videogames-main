@@ -1,0 +1,10 @@
+.navBar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: red;
+    text-transform: uppercase;
+
+    height: 6rem;
+}
+
