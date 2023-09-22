@@ -1,9 +1,12 @@
+import style from "./Home.module.css"
+import CardsContainer from "../../components/CardsContainer/CardContainer";
 const Home = () =>{
     return(
-        <div>
-            <h1>Esta es la vista del Home</h1>
+        <div className={style.home_container}>
+            
+            <CardsContainer/>
         </div>
     );
 }
 
-export default Home
+export default Home;

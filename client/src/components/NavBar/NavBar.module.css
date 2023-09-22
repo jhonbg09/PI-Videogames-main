@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: red;
+    background-color: rgb(67, 10, 95);
     text-transform: uppercase;
 
     height: 6rem;
@@ -15,8 +15,17 @@
     text-decoration: none;
     font-weight: 800;
     color: white;
+    opacity: 0.5;
+    transition: .3s ease-in-out;
+
+    height: 3rem;
+    text-align: center;
+    align-items: center;
+    
 }
 
 .links:hover{
     cursor: pointer;
+    opacity: 1;
+    border-bottom:8px solid white;
 }
